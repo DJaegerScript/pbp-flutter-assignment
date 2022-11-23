@@ -1,8 +1,36 @@
-# Assignment 8: Flutter Form
+# Assignment 9: Flutter Web Service Integration
 
 ## Name: Adjie Djaka Permana
 
 ## NPM: 2106702485
+
+1. **Can we retrieve JSON data without creating a model first? If yes, is it better than creating a model before retrieving JSON data?**
+
+   Yes, we can retrieve JSON data without creating a model in flutter, but it is better to create a model first. Because, with model we know exactly what type of data we want to retrieve.
+
+2. **List all the widgets you used in this project and explain their functions!**
+
+   In this project, I use these following widgets:
+
+   - `FutureBuilder()`, a widget to help the program executes asynchronous functions and will update the UI based on the latest snapshot of interaction with a `Future`.
+   - `ListView()`, used to create a scrollable, linear array of widgets.
+   - `GestureDetector()`, a non-visual widget that is used for detecting the user's gesture.
+
+3. **Explain the mechanism of retrieving data from json so it can be shown in Flutter!**
+
+   First, Flutter will send a request to the server by hitting a specific endpoint in a `FutureBuilder` widget. Then the server will process the request based on the endpoint that has been hit. After that, Flutter will send the requested data as a response. Then, when Flutter receives the response, Flutter should parse the data with the appropriate models. In the end, the `FutureBuilder` will update the snapshot of the data based on the latest server's response.
+
+4. **Explain how you implement the checklist above!**
+
+   First, I create a module called service that is responsible for making a request to a specific endpoint. I create a service module called `watchlist_service`. Inside that service, I create a base method `httpFetch` that is responsible for fetching the requested data from the server. Then, I add several methods that I need, such as `getAllWatchList`, `getWatchList`, and `updateWatchList`. Those methods are used for processing the response from the server.
+
+   After that, I create a `MyWatchListScreen`. That screen will display the list of data retrieved from the server. Each of the list items can be tapped thanks to the `GestureDetector`. When each of the items is tapped, the navigator will push a new screen called `MyWatchListDetailScreen`. When a new screen is pushed, the navigator also passes `id` from the tapped list item.
+
+   Lastly, I create a screen called `MyWatchListDetailScreen`, it is used to display the detailed data of the watch list based on the `id` passed from the `MyWatchListScreen`.
+
+   Additionally, I just add the checkbox on each list item for bonuses. Every time the checkbox value is changed, it will update the `watched` value of the data in the server.
+
+# Assignment 8: Flutter Form
 
 1. **Explain the difference between `Navigator.push` and `Navigator.pushReplacement`!**
 
@@ -38,8 +66,6 @@
    After that, I create the `AddBudgetInfoScreen`. At that screen, I create a form along its fields with the date picker for bonuses. Then, to store the data inputted from the form and to make it accessible in any screen, I create a state using `Provider`. So, every time the data is inputted by the user, the local state will be updated and every time the user save the data, the data will be saved to the global state.
 
    Lastly, I create the `BudgetDataScreen`. This screen contains the list of the budget data that is distributed from the data stored in global state.
-
-===================================== **END OF ASSIGNMENT 8** ======================================
 
 # Assignment 7: Flutter Basic Elements
 
