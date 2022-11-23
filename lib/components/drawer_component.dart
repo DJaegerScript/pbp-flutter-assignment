@@ -3,6 +3,7 @@ import 'package:pbp_assignment_flutter/main.dart';
 import 'package:pbp_assignment_flutter/screens/add_budget_info_screen.dart';
 import 'package:pbp_assignment_flutter/screens/budget_data_screen.dart';
 import 'package:pbp_assignment_flutter/screens/counter_7_screen.dart';
+import 'package:pbp_assignment_flutter/screens/my_watchlist_screen.dart';
 import 'package:provider/provider.dart';
 
 class DrawerComponents extends StatelessWidget {
@@ -69,6 +70,25 @@ class DrawerComponents extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const BudgetDataScreen()));
+            }
+          },
+        ),
+        ListTile(
+          title: Text(
+            "My Watch List",
+            style: currentScreen == 2
+                ? const TextStyle(fontWeight: FontWeight.bold)
+                : const TextStyle(fontWeight: FontWeight.normal),
+          ),
+          onTap: () {
+            Navigator.of(context).pop();
+            if (currentPage != "My Watch List") {
+              Provider.of<ScreenState>(context, listen: false)
+                  .setCurrentScreen(3);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const MyWatchListScreen()));
             }
           },
         )
