@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pbp_assignment_flutter/components/drawer_component.dart';
-import 'package:pbp_assignment_flutter/screens/my_watchlist_detail.dart';
+import 'package:pbp_assignment_flutter/screens/my_watchlist_detail_screen.dart';
 import 'package:pbp_assignment_flutter/service/watchlist_service.dart';
 
 import '../models/watchlist_model.dart';
@@ -47,7 +47,7 @@ class _MyWatchListScreenState extends State<MyWatchListScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MyWishlistDetail(
+                                  builder: (context) => MyWishlistDetailScreen(
                                       id: snapshot.data![index].pk)));
                         },
                         child: Container(
@@ -56,6 +56,10 @@ class _MyWatchListScreenState extends State<MyWatchListScreen> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(15.0),
+                              border: Border.all(
+                                  color: snapshot.data![index].fields.watched
+                                      ? Colors.green
+                                      : Colors.red),
                               boxShadow: const [
                                 BoxShadow(color: Colors.black, blurRadius: 2.0)
                               ]),

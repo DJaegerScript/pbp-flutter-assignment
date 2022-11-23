@@ -4,17 +4,17 @@ import 'package:pbp_assignment_flutter/components/drawer_component.dart';
 import 'package:pbp_assignment_flutter/models/watchlist_model.dart';
 import 'package:pbp_assignment_flutter/service/watchlist_service.dart';
 
-class MyWishlistDetail extends StatefulWidget {
-  const MyWishlistDetail({super.key, required this.id});
+class MyWishlistDetailScreen extends StatefulWidget {
+  const MyWishlistDetailScreen({super.key, required this.id});
 
   final int id;
   final String title = "My Watch List Detail";
 
   @override
-  State<MyWishlistDetail> createState() => _MyWishlistDetailState();
+  State<MyWishlistDetailScreen> createState() => _MyWishlistDetailScreenState();
 }
 
-class _MyWishlistDetailState extends State<MyWishlistDetail> {
+class _MyWishlistDetailScreenState extends State<MyWishlistDetailScreen> {
   final DateFormat formatter = DateFormat('MMMd, yyyy');
 
   @override
